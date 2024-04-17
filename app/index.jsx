@@ -3,12 +3,14 @@ import { Text, View ,ScrollView ,Image} from "react-native"
 import { SafeAreaView} from 'react-native-safe-area-context';
 import {images} from "../constants"
 import CustomButton from '../components/CustomButton';
+import { Redirect,router } from 'expo-router';
+
 
 export default function App() {
   return (
     <SafeAreaView className="bg-primary h-full">
      <ScrollView contentContainerStyle={{height :'100%'}} >
-<View className="w-full jutify-center items-center h-full px-4">
+<View className="w-full jutify-center items-center min-h-[85vh] px-4">
 <Image source={images.logo} className="w-[130px] h-[130px]" resizeMode='contain'/>
 <View className="flex-row gap-3">
 <Text className="text-3xl text-yellow-300 font-pbold">Deepak</Text>
@@ -26,7 +28,10 @@ export default function App() {
 <View className="mt-5">
 <Text className="text-sm text-slate-100 font-pregular text-center px-4">Where you can create cool custom eyewears for your friends and family using AI.</Text>
 </View>
-<CustomButton/>
+<CustomButton title="Continue with Email"
+handlePress={()=>router.push('/sign-in')}
+containerStyle="w-full mt-7"
+/>
 
 </View>
 
