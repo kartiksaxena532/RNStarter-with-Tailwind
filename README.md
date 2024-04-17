@@ -10,4 +10,4 @@ npm install or simply npm i
 npx expo start
 ```
 
-<img src={"https://github.com/kartiksaxena532/RNStarter-with-Tailwind/assets/92146206/5ceab959-3ad4-4942-a5d4-c904695c3d3d"} style={ width:"10px" ; height:"30px"}/>
+<img src="https://github.com/kartiksaxena532/RNStarter-with-Tailwind/assets/92146206/5ceab959-3ad4-4942-a5d4-c904695c3d3d" style={ width:"10px" ; height:"30px"}/>
