@@ -78,9 +78,7 @@ const SignUp = () => {
           />
 
           <View className="justify-center pt-5 flex-row gap-2 mt-3">
-
             <Text className="text-lg text-white font-pregular">Already a user?</Text>
-
             <Link className="text-lg text-blue-500 font-psemibold" href="/sign-in" >SignIn</Link>
           </View>
 
