@@ -34,7 +34,7 @@ const [fontsLoaded, error]= useFonts({
   if (!fontsLoaded && !error) return null;
 
   return (
-<GlobalProvider>
+
       <Stack>
         <Stack.Screen name="index" options={{headerShown:  false}} />
         <Stack.Screen name="(auth)" options={{headerShown:  false}} />
@@ -42,8 +42,6 @@ const [fontsLoaded, error]= useFonts({
         {/*
          <Stack.Screen name="/search/[query]" options={{headerShown:  false}} />*/}
       </Stack>
-
-      </GlobalProvider>
   )
 }
 
