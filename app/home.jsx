@@ -16,7 +16,7 @@ const home = () => {
 
   return (
     
-    <SafeAreaView className="flex-1 items-center justify-between my-3 flex-col">
+    <SafeAreaView className="flex-1 items-center justify-center flex-row">
     <Navbar/>
     <View >
         <Animated.View
