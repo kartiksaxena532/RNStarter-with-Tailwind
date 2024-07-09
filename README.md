@@ -1,1 +1,2 @@
-This is a starter packe for expo app \
+Implementing app in tailwind css which is naitvewind for expo/ react native 
+
