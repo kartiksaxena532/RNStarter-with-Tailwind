@@ -10,11 +10,11 @@ const home = () => {
 
   return (
 
-    <SafeAreaView className="flex-1 items-center bg-blue-500  flex-col">
+    <SafeAreaView className="flex-1 items-center bg-[#346DF6]  flex-col">
     
     <View className="flex w-full flex-row justify-end items-center" >
       <TouchableOpacity>
-      <Link href="/signIn" className='flex  items-baseline text-white text-bold text-lg mx-3 my-3'>
+      <Link href="/(tabs)/profile" className='flex  items-baseline text-white text-bold text-lg mx-3 my-3'>
       <Ionicons name="play-skip-forward" size={28} color="white"/>
       </Link>
       </TouchableOpacity>
@@ -29,7 +29,7 @@ const home = () => {
           keeping your details safe even if they get exposed.
         </Text>
       </View>
-      <Image source={require('../assets/images/page2.png')} className="w-2/3 h-1/2 mt-6 mb-1"/>
+      <Image source={require('../assets/images/page2.png')} className="w-full h-2/4 object-bottom mt-6 mb-1"/>
       
       <TouchableOpacity>
       <Link href="/page1" className="text-blue-500 text-xl text-center font-bold bg-white py-3 px-28 rounded-full" >

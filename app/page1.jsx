@@ -9,7 +9,7 @@ import { Image } from 'expo-image';
 
 const page1 = () => {
   return (
-    <SafeAreaView className="flex-1 items-center bg-blue-500  flex-col">
+    <SafeAreaView className="flex-1 items-center bg-[#346DF6] flex-col">
     
     <View className="flex w-full flex-row justify-end items-center" >
    
