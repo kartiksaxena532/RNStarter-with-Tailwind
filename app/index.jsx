@@ -19,16 +19,15 @@ const home = () => {
       </TouchableOpacity>
     </View>
     <View>
-        <Text className="text-4xl text-center mt-10 mb-5 text-white font-semibold">
-          Welcome to Jaypee Camera {"\n"}Single click geotagging and photo application
+        <Text className="text-4xl text-center   text-white font-semibold">
+          Welcome to Jaypee Camera{"\n"}
         </Text>
-        <Text className="text-md text-center text-white leading-5">
-          Buy from new online stores with extra ,{"\n"}
-          single-use card numbers that wont work twice,{"\n"}
-          keeping your details safe even if they get exposed.
+        <Text className="text-md text-center mb-2 text-white leading-5">
+          Add Geotag to you photos ,{"\n"}
+          with just "One Click" .
         </Text>
       </View>
-      <Image source={require('../assets/images/page2.png')} className="w-full h-2/4 object-bottom mt-6 mb-1"/>
+      <Image source={require('../assets/images/page2.png')} className="w-full h-2/4 object-bottom m-1"/>
       
       <TouchableOpacity>
       <Link href="/profile" className="text-blue-500 text-xl text-center font-bold bg-white py-3 px-28 rounded-full" >

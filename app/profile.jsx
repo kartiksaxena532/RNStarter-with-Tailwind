@@ -19,9 +19,13 @@ import Navbar from './components/navbar';
   if (!permission.granted) {
     // Camera permissions are not granted yet.
     return (
-      <View style={styles.container}>
-        <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
-        <Button onPress={requestPermission} title="grant permission" />
+      <View className="flex-1 justify-center items-center ">
+        <Text className="text-center text-md sm:text-xl mb-10 ">We need your permission to show the camera.</Text>
+        <TouchableOpacity onPress={requestPermission} className="text-white text-xl text-center font-bold bg-blue-500 py-3 px-28 rounded-full">
+        <Text className="text-white" >
+          Continue
+        </Text>
+      </TouchableOpacity>
       </View>
     );
   }
@@ -31,27 +35,22 @@ import Navbar from './components/navbar';
   }
 
   return (
-    <SafeAreaView  className="flex-1 items-center  ustify-center flex-col">
-      <CameraView style={styles.camera} facing={facing}>
-        <View >
-        <View className=" w-full flex-row justify-end items-center" >
+    <SafeAreaView  className="flex-1 w-full items-center justify-center flex-col">
+      <CameraView className="flex-1" facing={facing}>
+        <View className=" w-full justify-center items-center" >
         <TouchableOpacity className=" my-3 mx-4" onPress={toggleCameraFacing}>
       <Ionicons name="camera-reverse-sharp" size={40} color="white" />
       </TouchableOpacity>
     </View>
-        </View>
         <Navbar />
-        <Text className=" flex items-center bg-transparent font-bold text-4xl">Kartik</Text>
       </CameraView>
-    </SafeAreaView >
+    </SafeAreaView>
   );
 }
 
 
 const styles = StyleSheet.create({
-  camera: {
-    flex: 1,
-  },
+
 
 });
 
