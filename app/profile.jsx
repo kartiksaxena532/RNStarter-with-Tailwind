@@ -1,8 +1,10 @@
 
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useState } from 'react';
-
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Navbar from './components/navbar';
 
 
  function Profile() {
@@ -29,43 +31,28 @@ import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView  className="flex-1 items-center  ustify-center flex-col">
       <CameraView style={styles.camera} facing={facing}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-            <Text style={styles.text}>Flip Camera</Text>
-          </TouchableOpacity>
-        </View>
-      </CameraView>
+        <View >
+        <View className=" w-full flex-row justify-end items-center" >
+        <TouchableOpacity className=" my-3 mx-4" onPress={toggleCameraFacing}>
+      <Ionicons name="camera-reverse-sharp" size={40} color="white" />
+      </TouchableOpacity>
     </View>
+        </View>
+        <Navbar />
+        <Text className=" flex items-center bg-transparent font-bold text-4xl">Kartik</Text>
+      </CameraView>
+    </SafeAreaView >
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
   camera: {
     flex: 1,
   },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: 'transparent',
-    margin: 64,
-  },
-  button: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-  },
+
 });
 
 export default Profile;
