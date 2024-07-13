@@ -10,13 +10,7 @@ const RootLayout = () => {
 
       <Stack>
         <Stack.Screen name="index" options={{headerShown:  false}} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="home" options={{headerShown:  false}} />
-        <Stack.Screen name="page1" options={{headerShown:  false}} />
-        <Stack.Screen name="page2" options={{headerShown:  false}} />
-        <Stack.Screen name="signIn" options={{headerShown:  false}} />
-        <Stack.Screen name="signup" options={{headerShown:  false}} />
-        <Stack.Screen name="profile" options={{headerShown:  false}} />
+        <Stack.Screen name="profile" options={{ headerShown: false }} />
       </Stack>
   )
 }
