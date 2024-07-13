@@ -12,7 +12,7 @@ const Navbar = () => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
+        setErrorMsg('Permission to access location not given');
         return;
       }
       let location = await Location.getCurrentPositionAsync({});
