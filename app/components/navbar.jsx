@@ -18,8 +18,7 @@ const Navbar = () => {
       setLocation(location);
     })();
   }, []);
-
-  let content = 'Fetching Location..';
+ 
   
   let content = 'Fetching Location...';
   if (errorMsg) {
