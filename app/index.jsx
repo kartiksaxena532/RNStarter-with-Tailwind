@@ -13,7 +13,7 @@ const home = () => {
     <SafeAreaView className="flex-1 items-center bg-[#346DF6] flex-col">
     <View className="flex w-full flex-row justify-end items-center" >
       <TouchableOpacity>
-      <Link href="/profile" className='flex  items-baseline text-white text-bold text-lg mx-3 my-3'>
+      <Link href="/profile" className='flex  items-baseline text-white text-bold text-lg mx-3 my-1'>
       <Ionicons name="play-skip-forward" size={28} color="white"/>
       </Link>
       </TouchableOpacity>
