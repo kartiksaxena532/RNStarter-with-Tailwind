@@ -1,13 +1,11 @@
 import * as MediaLibrary from 'expo-media-library';
-import { captureRef } from 'react-native-view-shot';
 import { CameraView, Camera,useCameraPermissions } from 'expo-camera';
 import React, { useState, useRef, useEffect } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as FileSystem from 'expo-file-system';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Navbar from './components/navbar';
-
+import { Canvas, Circle, Group } from "@shopify/react-native-skia";
 
  function Profile() {
 
@@ -20,6 +18,8 @@ import Navbar from './components/navbar';
   const [mode, setMode] = useState('picture');
   const [photoUri, setPhotoUri] = useState('');
   const imageRef = useRef();
+  const viewShotRef = useRef(null);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
     (async () => {
@@ -61,23 +61,72 @@ import Navbar from './components/navbar';
         if (hasMediaLibraryPermission) {
           await MediaLibrary.createAssetAsync(localUri);
         }
+
+        // Draw text on the photo
+        drawTextOnPhoto(localUri);
       } else {
         // Handle video recording logic here if needed
       }
     }
   };
 
+  const drawTextOnPhoto = async (uri) => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.src = uri;
+
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      ctx.font = '40px Arial';
+      ctx.fillStyle = 'white';
+      ctx.fillText('Your Text Here', 50, 50);
+
+      viewShotRef.current.capture().then(uri => {
+        savePhotoWithText(uri);
+      });
+    };
+  };
+
+  const savePhotoWithText = async (uri) => {
+    const localUri = `${FileSystem.documentDirectory}photo_with_text_${Date.now()}.jpg`;
+    await FileSystem.moveAsync({
+      from: uri,
+      to: localUri,
+    });
+
+    setPhotoUri(localUri);
+    console.log('Photo with text saved to:', localUri);
+
+    if (hasMediaLibraryPermission) {
+      await MediaLibrary.createAssetAsync(localUri);
+    }
+  };
+
+
   function toggleCameraFacing() {
     setFacing(current => (current === 'back' ? 'front' : 'back'));
   }
+  const width = 256;
+  const height = 256;
+  const r = width * 0.33;
 
+    
 
   return (
     
     <SafeAreaView  className="flex-1 items-center  justify-center flex-col">
       <View ref={imageRef} collapsable={false}>
       <CameraView className="flex-1 w-screen" facing={facing}  ref={(ref) => setCamera(ref)} >
-        <Navbar />
+      <Canvas style={{ width, height }}>
+      <Group blendMode="multiply">
+        <Circle cx={r} cy={r} r={r} color="cyan" />
+        <Circle cx={width - r} cy={r} r={r} color="magenta" />
+        <Circle cx={width / 2} cy={width - r} r={r} color="yellow" />
+      </Group>
+    </Canvas>
       </CameraView>
       </View>
       <View className="flex w-full flex-row justify-between mb-20 " >
@@ -101,6 +150,7 @@ import Navbar from './components/navbar';
       >
         <Text style={{ fontSize: 18, color: 'black' }}>{mode === 'picture' ? 'Take Picture' : 'Record Video'}</Text>
       </TouchableOpacity>
+      
       <TouchableOpacity className="my-3 mx-4" >
       <Ionicons name="camera" size={40} color="black" />
       </TouchableOpacity>
