@@ -121,11 +121,6 @@ import { Canvas, Circle, Group } from "@shopify/react-native-skia";
       <View ref={imageRef} collapsable={false}>
       <CameraView className="flex-1 w-screen" facing={facing}  ref={(ref) => setCamera(ref)} >
       <Canvas style={{ width, height }}>
-      <Group blendMode="multiply">
-        <Circle cx={r} cy={r} r={r} color="cyan" />
-        <Circle cx={width - r} cy={r} r={r} color="magenta" />
-        <Circle cx={width / 2} cy={width - r} r={r} color="yellow" />
-      </Group>
     </Canvas>
       </CameraView>
       </View>
