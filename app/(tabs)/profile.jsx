@@ -6,6 +6,8 @@ import * as FileSystem from 'expo-file-system';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Canvas, Circle, Group } from "@shopify/react-native-skia";
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Entypo from '@expo/vector-icons/Entypo';
 
  function Profile() {
 
@@ -124,32 +126,23 @@ import { Canvas, Circle, Group } from "@shopify/react-native-skia";
     </Canvas>
       </CameraView>
       </View>
-      <View className="flex w-full flex-row justify-between mb-20 " >
+      <View className="flex w-full flex-row justify-between mb-20" >
       <TouchableOpacity
-            style={{
-              flex: 1,
-              alignSelf: 'flex-end',
-              alignItems: 'center',
-            }}
             onPress={() => {
               setMode((prevMode) => (prevMode === 'picture' ? 'video' : 'picture'));
             }}
           >
             <Text style={{ fontSize: 18, marginBottom: 10, color: 'black' }}>
-              {mode === 'picture' ? 'Switch to Video' : 'Switch to Picture'}
+              {mode === 'picture' ? <MaterialIcons name="switch-video" size={40} color="black" /> : <MaterialIcons name="switch-camera" size={40} color="black" />}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-        style={{ flex: 1, alignSelf: 'center' }}
         onPress={handleCapture}
       >
-        <Text style={{ fontSize: 18, color: 'black' }}>{mode === 'picture' ? 'Take Picture' : 'Record Video'}</Text>
+        <Text style={{ fontSize: 18, color: 'black' }}>{mode === 'picture' ?  <Ionicons name="camera" size={40} color="black" />: <Entypo name="video-camera" size={40} color="black" />}</Text>
+        <Text style={{ fontSize: 18, color: 'red' ,textAlign:"center" ,}}>{mode === 'picture' ?  "Capture": "Record"}</Text>
       </TouchableOpacity>
-      
-      <TouchableOpacity className="my-3 mx-4" >
-      <Ionicons name="camera" size={40} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity className="my-3 mx-4" onPress={toggleCameraFacing}>
+      <TouchableOpacity  onPress={toggleCameraFacing}>
       <Ionicons name="camera-reverse-sharp" size={40} color="black" />
       </TouchableOpacity>
       </View>
