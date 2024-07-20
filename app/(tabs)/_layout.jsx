@@ -20,6 +20,14 @@ export default function TabLayout() {
           headerShown: false ,
         }}
       />
+        <Tabs.Screen
+        name="skia"
+        options={{
+          title: 'Skia',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="paperclip" color={color} />,
+          headerShown: false ,
+        }}
+      />
      
     </Tabs>
   );

@@ -5,19 +5,28 @@ import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Image } from 'expo-image';
-import { WebView } from 'react-native-webview';
-import Constants from 'expo-constants';
+
 
 const index = () => {
 
   return (
-    <SafeAreaView className="flex-1 items-center bg-[#000000] flex-col">
-     <WebView
-      style={styles.container}
-      source={{ uri: 'https://cubik-in.vercel.app' }}
-    />
+    <SafeAreaView className="flex-1 items-center bg-[#346DF6] flex-col">
+    <View className="flex w-full flex-row justify-between items-center" >
+
+      
+    </View>
+    <View>
+        <Text className="text-4xl text-center flex mb-3 text-white font-semibold">
+          Welcome to{"\n"}Jaypee Camera
+        </Text>
+        <Text className="text-xl text-center text-white mb-2 leading-0">
+        Single click geotagging and photo application
+        </Text>
+      </View>
+      <Image source={require('../assets/images/page2.png')} className="w-full h-2/4 object-bottom mt-6 mb-2"/>
+      
       <TouchableOpacity>
-      <Link href="/page1" className="text-orange-500 text-xl text-center font-bold bg-white ring-2 ring-orange-300 py-3 my-5 px-28 rounded-full" >
+      <Link href="/profile" className="text-blue-500 text-xl text-center font-bold bg-white py-3 px-28 rounded-full" >
         <Text >
           Continue
         </Text>
@@ -27,13 +36,5 @@ const index = () => {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width:410,
-    
-  },
-});
 
 export default index
