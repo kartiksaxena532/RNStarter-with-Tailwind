@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Jaypee Camera",
-    "scheme": "Jaypee Camera",
-    "slug": "Jaypee Camera",
+    "scheme": "jaypeecamera",
+    "slug": "jaypeecamera",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kartik.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -51,6 +52,20 @@
           "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4882fe3b-858d-4707-8418-58f3b24da305"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4882fe3b-858d-4707-8418-58f3b24da305"
+    }
   }
 }

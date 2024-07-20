@@ -11,14 +11,14 @@ const Navbar = () => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
+        setErrorMsg('Permission to access location not given');
         return;
       }
-
       let location = await Location.getCurrentPositionAsync({});
       setLocation(location);
     })();
   }, []);
+ 
   
   let content = 'Fetching Location...';
   if (errorMsg) {
@@ -30,6 +30,7 @@ const Navbar = () => {
           <Title>Location Details</Title>
           <Paragraph>Latitude: {location.coords.latitude}</Paragraph>
           <Paragraph>Longitude: {location.coords.longitude}</Paragraph>
+          <Paragraph>Accuracy: {location.coords.accuracy}</Paragraph>
           <Paragraph>Timestamp: {new Date(location.timestamp).toString()}</Paragraph>
         </Card.Content>
       </Card>
@@ -49,13 +50,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: 15,
+    height:20,
+    width:400,
+    marginTop:420,
     justifyContent: 'start',
     padding: 10,
     marginTop:70,
   },
   paragraph: {
+    fontSize: 10,
     fontSize: 15,
     textAlign: 'center',
+    color: "#ffffff",
   },
   card: {
     margin: 2,
@@ -64,8 +72,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f9fa',
     shadowColor: '#000',
     shadowOffset: {
-      width: 0,
-      height: 2,
+      width: 25,
+      height: 1,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
